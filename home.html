@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M.A.Y.</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul class="sidebar">
+            <li class="navLinks" onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+            <li class="navLinks"><a href="#">Home</a></li>
+            <li class="navLinks"><a href="#">About Us</a></li>
+            <li class="navLinks"><a href="#">Our Works</a></li>
+            <li class="navLinks"><a href="#">Members</a></li>
+            <li class="navLinks"><a href="#">Apply</a></li>
+        </ul>
+        <ul>
+            <li ><a href=""><img src="Images/Logo.jpeg" alt="Logo Of M.A.Y." height="125px"></a></li>
+            <li class="hideOnMobile"><a href="#">Home</a></li>
+            <li class="hideOnMobile"><a href="#">About Us</a></li>
+            <li class="hideOnMobile"><a href="#">Our Works</a></li>
+            <li class="hideOnMobile"><a href="#">Members</a></li>
+            <li class="hideOnMobile"><a href="#">Apply</a></li>
+            <li class="hideOnCom" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px" fill="#5f6368"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <div class="bgImage">
+            <div class="filterBlur"></div>
+        </div>
+        <div class="may">
+            <h1 >M.A.Y.</h1>
+            <h4>Musically Accompanied Youth</h4>
+        </div>
+    </header>
+
+    <div class="description">
+        <h1>M.A.Y.</h1>
+        <h3> An ensemble located in ****** Seoul, South Korea. The ensemble is composed of youth members. (A.K.A. kiddios) Some of them don't want to be in the ensemble and some suck at their instrument. So, to feel better and not like a failure someone (*cough cough*) is making a trashy website that looks goofy in its current state.</h3>
+    </div>
+
+    <script> 
+        function showSidebar() {
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'flex'
+        }
+        function hideSidebar() {
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'none'
+        }
+
+        
+    </script>
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide"><img src="Images/Screenshot 2025-02-17 at 9.23.34 PM.jpeg" alt="Image 1"></div>
+            <div class="slide"><img src="Images/sliderImage2.jpeg" alt="Image 2"></div>
+            <div class="slide"><img src="Images/sliderImage3.jpg" alt="Image 3"></div>
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+
+    <div class="dots">
+        <span class="dot" onclick="currentSlide(0)"></span>
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll(".slide");
+        const dots = document.querySelectorAll(".dot");
+        const slider = document.querySelector(".slider");
+
+        function updateSlider() {
+            slider.style.transform = `translateX(${-currentIndex * 100}%)`;
+            dots.forEach((dot, i) => {
+                dot.classList.toggle("active", i === currentIndex);
+            });
+        }
+
+        function moveSlide(step) {
+            currentIndex = (currentIndex + step + slides.length) % slides.length;
+            updateSlider();
+        }
+
+        function currentSlide(index) {
+            currentIndex = index;
+            updateSlider();
+        }
+
+        // Auto Slide
+        setInterval(() => {
+            moveSlide(1);
+        }, 10000);
+
+        updateSlider();
+    </script>
+</body>
+</html>

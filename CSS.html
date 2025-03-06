@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Website</title>
+    <style>
+        /* Style for the navigation bar */
+        .navbar {
+            display: flex;
+            align-items: center; /* Vertically align items */
+            justify-content: space-between; /* Space out the logo and tabs */
+            background-color: white; /* White background */
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+        }
+        .navbar .logo {
+            display: flex;
+            align-items: center; /* Center the logo vertically */
+        }
+        .navbar .logo img {
+            height: 150px; /* Adjust logo height */
+        }
+        .navbar .tabs {
+            display: flex;
+            gap: 10px; /* Add spacing between tabs */
+        }
+        .navbar .tabs a {
+            text-decoration: none; /* Remove underline */
+            color: #555; /* Gray text color */
+            font-size: 25px;
+            padding: 15px 15px;
+            border: 1px solid #ddd; /* Light border around tabs */
+            border-radius: 5px; /* Rounded corners */
+            background-color: white; /* White background */
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .navbar .tabs a:hover {
+            background-color: #ddd; /* Light gray background on hover */
+            color: black; /* Black text on hover */
+        }
+        .navbar .tabs a.active {
+            background-color: #d1d0c5; /* Highlighted background for active tab */
+            color: white; /* White text for active tab */
+        }
+
+        /* Main content */
+        .content {
+            margin-top: 10px; /* Ensure content starts below the navbar */
+            text-align: center; /* Center the content */
+        }
+        video {
+            margin-top: 10px; /* Add spacing above the video */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <!-- Logo Section -->
+        <div class="logo">
+            <img src="/Images/Logo.jpeg" alt="Logo">
+        </div>
+        <!-- Tabs Section -->
+        <div class="tabs">
+            <a href="#home" class="active">Home</a>
+            <a href="#about-us">About Us</a>
+            <a href="#our-works">Our Works</a>
+            <a href="#members">Members</a>
+          
+        </div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content">
+        <video controls src="Videos/TalkMedia_talkv_high.mp4.mp4"></video>
+    </div>
+</body>
+</html>

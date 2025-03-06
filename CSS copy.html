@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Website</title>
+    <style>
+        /* Style for the navigation bar */
+        .navbar {
+            display: flex;
+            align-items: center; /* Vertically align items */
+            justify-content: space-between; /* Space out the logo and tabs */
+            background-color: white; /* White background */
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+        }
+        .navbar .logo {
+            display: flex;
+            align-items: center; /* Center the logo vertically */
+        }
+        .navbar .logo img {
+            height: 150px; /* Adjust logo height */
+        }
+        .navbar .tabs {
+            display: flex;
+            gap: 10px; /* Add spacing between tabs */
+        }
+        .navbar .tabs a {
+            text-decoration: none; /* Remove underline */
+            color: #555; /* Gray text color */
+            font-size: 25px;
+            padding: 15px 15px;
+            border: 1px solid #ddd; /* Light border around tabs */
+            border-radius: 5px; /* Rounded corners */
+            background-color: white; /* White background */
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .navbar .tabs a:hover {
+            background-color: #ddd; /* Light gray background on hover */
+            color: black; /* Black text on hover */
+        }
+        .navbar .tabs a.active {
+            background-color: #d1d0c5; /* Highlighted background for active tab */
+            color: white; /* White text for active tab */
+        }
+
+        /* Slider container */
+        .slider {
+            position: relative;
+            width: 100vw;
+            height: 60vh;
+            margin: auto;
+            overflow: hidden;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 300%; /* Ensure smooth transition */
+        }
+        .slides img {
+            width: 100vw;
+            height: 60vh;
+            object-fit: cover; /* Ensures uniformity */
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <!-- Logo Section -->
+        <div class="logo">
+            <img src="/Images/Logo.jpeg" alt="Logo">
+        </div>
+        <!-- Tabs Section -->
+        <div class="tabs">
+            <a href="#home" class="active">Home</a>
+            <a href="#about-us">About Us</a>
+            <a href="#our-works">Our Works</a>
+            <a href="#members">Members</a>
+          
+        </div>
+    </div>
+
+    <!-- Image Slider -->
+    <div class="slider">
+        <div class="slides">
+            <img src="Images/sliderImage1.png" alt="Slide 1">
+            <img src="Images/sliderImage2.jpeg" alt="Slide 2">
+            <img src="Images/sliderImage3.jpg" alt="Slide 3">
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelector('.slides');
+        const totalSlides = document.querySelectorAll('.slides img').length;
+
+        function moveSlide(n) {
+            slideIndex += n;
+            if (slideIndex >= totalSlides) { slideIndex = 0; }
+            if (slideIndex < 0) { slideIndex = totalSlides - 1; }
+            slides.style.transform = `translateX(${-slideIndex * 100}vw)`;
+        }
+    </script>
+</body>
+</html>
